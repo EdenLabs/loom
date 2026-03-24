@@ -62,7 +62,7 @@ impl ThreadId {
     /// This returns a numeric identifier for the thread identified by this `ThreadId`.
     pub fn as_u64(&self) -> std::num::NonZero<u64> {
         // NOTE: Biased by 1 to satisfy the non-zero property.
-        std::num::NonZero::new(self.id.public_id() + 1)
+        std::num::NonZero::new(self.id.public_id() as u64 + 1)
             .unwrap()
     }
 }
